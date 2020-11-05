@@ -35,7 +35,7 @@ namespace ToDo.Services
             {
                 throw new RpcException(new Status(StatusCode.NotFound, "Task not found"));
             }
-            return Task.FromResult(_repository.Remove(request.Id));
+            return Task.FromResult(result);
         }
     }
 }
