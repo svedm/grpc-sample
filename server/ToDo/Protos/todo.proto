@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option csharp_namespace = "ToDo";
+
+package todo;
+
+message Empty {
+}
+
+message ToDoItem {
+  string id = 1;
+  string text = 2;
+}
+
+message ListResponse {
+  repeated ToDoItem items = 1;
+}
+
+message AddRequest {
+  string text = 1;
+}
+
+message RemoveRequest {
+  string id = 1;
+}
+
+service ToDoService {
+  rpc List(Empty) returns (ListResponse);
+  rpc Add(AddRequest) returns (ToDoItem);
+  rpc Remove(RemoveRequest) returns (ToDoItem);
+}
