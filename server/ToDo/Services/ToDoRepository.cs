@@ -6,7 +6,19 @@ namespace ToDo.Services
 {
     public class ToDoRepository
     {
-        private readonly IList<ToDoItem> _items = new List<ToDoItem>();
+        private readonly IList<ToDoItem> _items;
+
+        public ToDoRepository()
+        {
+            _items = new List<ToDoItem>
+            {
+                new ToDoItem
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Text = "Say hello"
+                }
+            };
+        }
 
         public IEnumerable<ToDoItem> All()
         {
